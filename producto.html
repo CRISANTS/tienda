@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Camiseta - Paranoia Eyes</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo-volver">← Volver</a>
+  </header>
+
+  <main class="detalle-producto">
+    <!-- CARRUSEL DE IMÁGENES -->
+    <div class="carrusel">
+      <img src="https://i.postimg.cc/XY8xDkN4/camiseta1.png" alt="Camiseta 1" class="detalle-imagen" style="display: block;">
+      <img src="https://i.postimg.cc/W12wrqGK/camiseta2.jpg" alt="Camiseta 2" class="detalle-imagen" style="display: none;">
+      <img src="https://i.postimg.cc/L8NBV4vs/camiseta3.jpg" alt="Camiseta 3" class="detalle-imagen" style="display: none;">
+      <img src="https://i.postimg.cc/cJC7kq5B/camiseta4.jpg" alt="Camiseta 3" class="detalle-imagen" style="display: none;">
+      <div class="controles">
+        <button onclick="moverCarrusel(-1)">‹</button>
+        <button onclick="moverCarrusel(1)">›</button>
+      </div>
+    </div>
+
+    <div class="detalle-info">
+      <h3>Camiseta Negra Oversize</h3>
+      <p>Estampado urbano</p>
+      <p>Talla única (L)</p>
+      <p>Precio: <strong>$16.00</strong></p>
+      <p>_</p>
+      <a class="boton" target="_blank"
+         href="https://wa.me/593982803424?text=Hola%2C%20quiero%20comprar%20la%20camiseta%20negra%20Oversize%20de%20Paranoia%20Eyes">
+         Pedir por WhatsApp
+      </a>
+    </div>
+  </main>
+
+  <!-- SCRIPT DEL CARRUSEL -->
+  <script>
+    let indice = 0;
+    const imagenes = document.querySelectorAll('.carrusel .detalle-imagen');
+
+    function mostrarImagen(n) {
+      imagenes.forEach((img, i) => {
+        img.style.display = (i === n) ? 'block' : 'none';
+      });
+    }
+
+    function moverCarrusel(direccion) {
+      indice = (indice + direccion + imagenes.length) % imagenes.length;
+      mostrarImagen(indice);
+    }
+  </script>
+</body>
+</html>
